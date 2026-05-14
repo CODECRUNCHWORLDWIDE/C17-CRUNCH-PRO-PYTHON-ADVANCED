@@ -1,0 +1,64 @@
+# exercise-02-mypkg-pyproject.toml
+#
+# A complete pyproject.toml for a 30-line example package. Exercise 2 uses
+# this as the working source — you build a wheel and sdist from it, then
+# inspect the artifacts.
+#
+# The package itself: a single module exposing a `greet(name) -> str`
+# function and a `mypkg-cli` entry point. Trivial; the point is the
+# packaging, not the code.
+#
+# Backend: hatchling (chosen for its strict standards-adherence and fast
+# builds). The `[tool.hatch.*]` tables are minimal — defaults work for the
+# src-layout we use.
+#
+# Cite: PEP 517/518/621; hatchling docs <https://hatch.pypa.io/latest/>.
+
+[build-system]
+requires = ["hatchling >= 1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mypkg-exercise"
+version = "0.1.0"
+description = "A 30-line example package for Week 9 Exercise 2."
+readme = "README.md"
+requires-python = ">= 3.11"
+license = "MIT"
+authors = [
+    { name = "Code Crunch Worldwide", email = "noreply@example.org" },
+]
+keywords = ["example", "packaging", "demo"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Education",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest >= 7"]
+
+[project.scripts]
+mypkg-cli = "mypkg_exercise.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/example/mypkg-exercise"
+Issues = "https://github.com/example/mypkg-exercise/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mypkg_exercise"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/README.md",
+    "/LICENSE",
+    "/pyproject.toml",
+]

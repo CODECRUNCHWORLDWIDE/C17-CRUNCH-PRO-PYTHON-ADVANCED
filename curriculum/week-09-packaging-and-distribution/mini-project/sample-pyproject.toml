@@ -1,0 +1,102 @@
+# sample-pyproject.toml
+#
+# Starter pyproject.toml for the Week 9 mini-project. Use this as a
+# scaffold; replace the placeholder strings with your own.
+#
+# Backend: hatchling (the modern pure-Python default per Lecture 2 §11).
+# Version: static for the mini-project (simpler than dynamic + hatch-vcs
+# for a first publish). Switch to dynamic + hatch-vcs once you are
+# comfortable; see Lecture 3 §7.
+#
+# Validate parse:
+#   python3 -c "import tomllib; tomllib.load(open('pyproject.toml','rb'))"
+#
+# References:
+#   - PEP 517: <https://peps.python.org/pep-0517/>
+#   - PEP 518: <https://peps.python.org/pep-0518/>
+#   - PEP 621: <https://peps.python.org/pep-0621/>
+#   - packaging.python.org spec:
+#       <https://packaging.python.org/en/latest/specifications/pyproject-toml/>
+#   - hatchling config: <https://hatch.pypa.io/latest/config/build/>
+
+[build-system]
+requires = ["hatchling >= 1.27"]
+build-backend = "hatchling.build"
+
+[project]
+# Replace with your-package-name-<yourhandle>. Check that the name is
+# available on TestPyPI before committing:
+#   https://test.pypi.org/project/<your-package-name>/
+# A 404 means available.
+name = "yourpkg-yourhandle"
+version = "0.0.1"
+description = "REPLACE: One-sentence description of what your library does."
+readme = "README.md"
+requires-python = ">= 3.11"
+license = "MIT"
+authors = [
+    { name = "Your Name", email = "you@example.org" },
+]
+keywords = ["REPLACE", "with", "real", "keywords"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+# Runtime dependencies. Leave empty if your package is dependency-free.
+# Use PEP 508 specifiers: `name >= version`, `name >= version, < cap`,
+# `name; python_version < "3.12"`, etc.
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest >= 7"]
+dev = ["ruff >= 0.5", "mypy >= 1.10", "yourpkg-yourhandle[test]"]
+
+# If your package has a CLI, declare its entry point here:
+[project.scripts]
+yourpkg-cli = "yourpkg_yourhandle.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/REPLACE-USER/REPLACE-REPO"
+Issues = "https://github.com/REPLACE-USER/REPLACE-REPO/issues"
+Changelog = "https://github.com/REPLACE-USER/REPLACE-REPO/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+# Replace yourpkg_yourhandle with the actual directory name under src/.
+# Note: distribution names use dashes (`yourpkg-yourhandle`); the import
+# name (and source directory) uses underscores (`yourpkg_yourhandle`).
+packages = ["src/yourpkg_yourhandle"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/tests",
+    "/CHANGELOG.md",
+    "/README.md",
+    "/LICENSE",
+    "/pyproject.toml",
+]
+
+# Tool configs - not required but conventional. Comment out or remove
+# any you do not actually use.
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B"]
+
+[tool.mypy]
+strict = true
+python_version = "3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -q --strict-markers"

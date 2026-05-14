@@ -1,0 +1,108 @@
+# exercise-01-sample-pyproject.toml
+# A sample pyproject.toml for Exercise 1. The exercise script parses this
+# file and emits a metadata report. The TOML is intentionally complete
+# (PEP 517 + 518 + 621) so the script has every field to exercise.
+#
+# Cite: PEP 517 <https://peps.python.org/pep-0517/>
+#       PEP 518 <https://peps.python.org/pep-0518/>
+#       PEP 621 <https://peps.python.org/pep-0621/>
+#       packaging.python.org pyproject.toml spec:
+#         <https://packaging.python.org/en/latest/specifications/pyproject-toml/>
+
+[build-system]
+requires = ["hatchling >= 1.27", "hatch-vcs >= 0.4"]
+build-backend = "hatchling.build"
+
+[project]
+name = "convoltools"
+dynamic = ["version"]
+description = "1D convolution kernels for time-series data."
+readme = "README.md"
+requires-python = ">= 3.11"
+license = "MIT"
+authors = [
+    { name = "Ada Lovelace", email = "ada@example.org" },
+    { name = "Grace Hopper", email = "grace@example.org" },
+]
+maintainers = [
+    { name = "Ada Lovelace", email = "ada@example.org" },
+]
+keywords = ["signal-processing", "convolution", "numerical-python"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+    "numpy >= 1.26",
+    "typing-extensions >= 4.7; python_version < '3.12'",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest >= 7.0",
+    "pytest-cov >= 5.0",
+    "hypothesis >= 6.100",
+]
+dev = [
+    "ruff >= 0.5",
+    "mypy >= 1.10",
+    "convoltools[test]",
+]
+docs = [
+    "sphinx >= 7.0",
+    "furo >= 2024.5",
+]
+
+[project.scripts]
+convoltools-cli = "convoltools.cli:main"
+
+[project.gui-scripts]
+convoltools-gui = "convoltools.gui:main"
+
+[project.entry-points."convoltools.kernels"]
+boxcar = "convoltools.kernels.boxcar:Boxcar"
+gaussian = "convoltools.kernels.gaussian:Gaussian"
+
+[project.urls]
+Homepage = "https://github.com/example/convoltools"
+Documentation = "https://convoltools.readthedocs.io"
+Issues = "https://github.com/example/convoltools/issues"
+Changelog = "https://github.com/example/convoltools/blob/main/CHANGELOG.md"
+Source = "https://github.com/example/convoltools"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/convoltools"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/tests",
+    "/CHANGELOG.md",
+    "/README.md",
+    "/LICENSE",
+    "/pyproject.toml",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+strict = true
+python_version = "3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -q --strict-markers"

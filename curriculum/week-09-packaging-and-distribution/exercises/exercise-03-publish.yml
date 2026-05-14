@@ -1,0 +1,141 @@
+# exercise-03-publish.yml
+#
+# A reference GitHub Actions workflow for trusted publishing to PyPI and
+# TestPyPI. This is the file you commit to .github/workflows/publish.yml
+# in the mini-project's repo.
+#
+# Trust setup (one-time, on the PyPI side):
+#   - On <https://pypi.org/manage/account/publishing/>, register a Pending
+#     Publisher for the project. Match the fields exactly to this workflow:
+#       owner:       <your GitHub org/user>
+#       repository:  <repo name>
+#       workflow:    publish.yml
+#       environment: pypi
+#   - On <https://test.pypi.org/manage/account/publishing/>, register a
+#     parallel publisher with environment: testpypi.
+#
+# Trigger: push of a tag matching v*.
+# Effect: builds sdist + wheel, uploads to TestPyPI, then to PyPI.
+#
+# Cite:
+#   - PEP 740 trusted publishing spec: <https://peps.python.org/pep-0740/>
+#   - PyPI Trusted Publishers docs: <https://docs.pypi.org/trusted-publishers/>
+#   - pypa/gh-action-pypi-publish: <https://github.com/pypa/gh-action-pypi-publish>
+
+name: publish
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+# Cancel an in-flight run if a newer tag is pushed.
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build sdist + wheel
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          # setuptools_scm / hatch-vcs need the full git history to
+          # compute the version from tags.
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install build tool
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build
+
+      - name: Build distributions
+        run: python -m build
+
+      - name: Verify metadata with twine
+        run: |
+          python -m pip install twine
+          twine check dist/*
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  publish-testpypi:
+    name: Publish to TestPyPI
+    needs: build
+    runs-on: ubuntu-latest
+    # The `environment` block ties this job to a GitHub Environment named
+    # `testpypi`. The Environment can carry approval requirements and
+    # restrict which branches/tags can use it. The URL shows on the run
+    # page for convenience.
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/${{ github.event.repository.name }}
+    permissions:
+      # Required for OIDC. Without this, the workflow cannot mint an ID token.
+      id-token: write
+    steps:
+      - name: Download distributions
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Upload to TestPyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+          # No `password:` block. Trusted publishing kicks in via the
+          # OIDC token automatically.
+
+  publish-pypi:
+    name: Publish to PyPI
+    needs: publish-testpypi
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/${{ github.event.repository.name }}
+    permissions:
+      id-token: write
+    steps:
+      - name: Download distributions
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Upload to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        # Default repository is https://upload.pypi.org/legacy/ — production PyPI.
+
+  github-release:
+    name: Create GitHub Release
+    needs: publish-pypi
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download distributions
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Create release and attach artifacts
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "Release ${GITHUB_REF_NAME}" \
+            --notes "See CHANGELOG.md for details." \
+            dist/*
