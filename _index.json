@@ -1,0 +1,577 @@
+{
+  "repo": "C17-CRUNCH-PRO-PYTHON-ADVANCED",
+  "files": [
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "title": "Contributor Covenant Code of Conduct"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "title": "Contributing to Crunch Pro \u2014 Python Advanced"
+    },
+    {
+      "path": "README.md",
+      "title": "C17 \u00b7 Crunch Pro \u2014 Python Advanced"
+    },
+    {
+      "path": "curriculum/README.md",
+      "title": "C17 \u00b7 Crunch Pro Python Advanced \u2014 Curriculum"
+    },
+    {
+      "path": "curriculum/SYLLABUS.md",
+      "title": "C17 \u00b7 Crunch Pro Python Advanced \u2014 Full Syllabus"
+    },
+    {
+      "path": "curriculum/diagnostic-quiz.md",
+      "title": "C17 Diagnostic Quiz"
+    },
+    {
+      "path": "curriculum/week-01-cpython-internals-and-the-mental-model/README.md",
+      "title": "Week 1 \u2014 CPython Internals and the Mental Model"
+    },
+    {
+      "path": "curriculum/week-01-cpython-internals-and-the-mental-model/challenges/README.md",
+      "title": "Week 1 \u2014 Challenges"
+    },
+    {
+      "path": "curriculum/week-01-cpython-internals-and-the-mental-model/challenges/challenge-01-build-cpython-from-source.md",
+      "title": "Challenge 1 \u2014 Build CPython from source"
+    },
+    {
+      "path": "curriculum/week-01-cpython-internals-and-the-mental-model/challenges/challenge-02-find-a-builtin.md",
+      "title": "Challenge 2 \u2014 Find a builtin"
+    },
+    {
+      "path": "curriculum/week-01-cpython-internals-and-the-mental-model/exercises/README.md",
+      "title": "Week 1 \u2014 Exercises"
+    },
+    {
+      "path": "curriculum/week-01-cpython-internals-and-the-mental-model/homework.md",
+      "title": "Week 1 Homework"
+    },
+    {
+      "path": "curriculum/week-01-cpython-internals-and-the-mental-model/lecture-notes/01-language-vs-implementation.md",
+      "title": "Lecture 1 \u2014 Language vs Implementation"
+    },
+    {
+      "path": "curriculum/week-01-cpython-internals-and-the-mental-model/lecture-notes/02-the-compilation-pipeline.md",
+      "title": "Lecture 2 \u2014 The Compilation Pipeline"
+    },
+    {
+      "path": "curriculum/week-01-cpython-internals-and-the-mental-model/lecture-notes/03-reading-bytecode.md",
+      "title": "Lecture 3 \u2014 Reading Bytecode"
+    },
+    {
+      "path": "curriculum/week-01-cpython-internals-and-the-mental-model/mini-project/README.md",
+      "title": "Mini-Project \u2014 The Python Explainer"
+    },
+    {
+      "path": "curriculum/week-01-cpython-internals-and-the-mental-model/quiz.md",
+      "title": "Week 1 \u2014 Quiz"
+    },
+    {
+      "path": "curriculum/week-01-cpython-internals-and-the-mental-model/resources.md",
+      "title": "Week 1 \u2014 Resources"
+    },
+    {
+      "path": "curriculum/week-02-refcounting-gc-memory/README.md",
+      "title": "Week 2 \u2014 The Object Model: Refcounting, GC, Memory"
+    },
+    {
+      "path": "curriculum/week-02-refcounting-gc-memory/challenges/README.md",
+      "title": "Week 2 \u2014 Challenges"
+    },
+    {
+      "path": "curriculum/week-02-refcounting-gc-memory/challenges/challenge-01-hunt-a-leak.md",
+      "title": "Challenge 1 \u2014 Hunt a real leak"
+    },
+    {
+      "path": "curriculum/week-02-refcounting-gc-memory/challenges/challenge-02-cache-without-keeping-alive.md",
+      "title": "Challenge 2 \u2014 Cache Without Keeping Alive"
+    },
+    {
+      "path": "curriculum/week-02-refcounting-gc-memory/exercises/README.md",
+      "title": "Week 2 \u2014 Exercises"
+    },
+    {
+      "path": "curriculum/week-02-refcounting-gc-memory/homework.md",
+      "title": "Week 2 \u2014 Homework"
+    },
+    {
+      "path": "curriculum/week-02-refcounting-gc-memory/lecture-notes/01-the-pyobject-struct-and-refcounts.md",
+      "title": "Lecture 1 \u2014 The PyObject Struct and Reference Counts"
+    },
+    {
+      "path": "curriculum/week-02-refcounting-gc-memory/lecture-notes/02-cycles-and-the-generational-gc.md",
+      "title": "Lecture 2 \u2014 Cycles and the Generational GC"
+    },
+    {
+      "path": "curriculum/week-02-refcounting-gc-memory/lecture-notes/03-slots-weakref-and-tooling.md",
+      "title": "Lecture 3 \u2014 `__slots__`, `weakref`, and the Tooling Tour"
+    },
+    {
+      "path": "curriculum/week-02-refcounting-gc-memory/mini-project/README.md",
+      "title": "Mini-Project \u2014 Detect a Leak in a Real Open-Source Project"
+    },
+    {
+      "path": "curriculum/week-02-refcounting-gc-memory/quiz.md",
+      "title": "Week 2 \u2014 Quiz"
+    },
+    {
+      "path": "curriculum/week-02-refcounting-gc-memory/resources.md",
+      "title": "Week 2 \u2014 Resources"
+    },
+    {
+      "path": "curriculum/week-03-bytecode-stack-machine-gil/README.md",
+      "title": "Week 3 \u2014 Bytecode, the Stack Machine, and the GIL"
+    },
+    {
+      "path": "curriculum/week-03-bytecode-stack-machine-gil/challenges/README.md",
+      "title": "Week 3 \u2014 Challenges"
+    },
+    {
+      "path": "curriculum/week-03-bytecode-stack-machine-gil/challenges/challenge-01-write-a-100-line-tracer.md",
+      "title": "Challenge 1 \u2014 Write a 100-line bytecode tracer in one timed sitting"
+    },
+    {
+      "path": "curriculum/week-03-bytecode-stack-machine-gil/exercises/README.md",
+      "title": "Week 3 \u2014 Exercises"
+    },
+    {
+      "path": "curriculum/week-03-bytecode-stack-machine-gil/homework.md",
+      "title": "Week 3 \u2014 Homework"
+    },
+    {
+      "path": "curriculum/week-03-bytecode-stack-machine-gil/lecture-notes/01-the-evaluation-loop-deep-dive.md",
+      "title": "Lecture 1 \u2014 The Evaluation Loop, Deep Dive"
+    },
+    {
+      "path": "curriculum/week-03-bytecode-stack-machine-gil/lecture-notes/02-load-fast-vs-load-global-and-specialization.md",
+      "title": "Lecture 2 \u2014 `LOAD_FAST` vs. `LOAD_GLOBAL`, and the Specializing Adaptive Interpreter (PEP 659)"
+    },
+    {
+      "path": "curriculum/week-03-bytecode-stack-machine-gil/lecture-notes/03-the-GIL-and-the-free-threaded-build.md",
+      "title": "Lecture 3 \u2014 The GIL, the Free-Threaded Build, and Subinterpreters"
+    },
+    {
+      "path": "curriculum/week-03-bytecode-stack-machine-gil/mini-project/README.md",
+      "title": "Mini-Project \u2014 A 100-Line CPython Bytecode Tracer"
+    },
+    {
+      "path": "curriculum/week-03-bytecode-stack-machine-gil/quiz.md",
+      "title": "Week 3 \u2014 Quiz"
+    },
+    {
+      "path": "curriculum/week-03-bytecode-stack-machine-gil/resources.md",
+      "title": "Week 3 \u2014 Resources"
+    },
+    {
+      "path": "curriculum/week-04-asyncio-first-principles/README.md",
+      "title": "Week 4 \u2014 `asyncio` From First Principles"
+    },
+    {
+      "path": "curriculum/week-04-asyncio-first-principles/challenges/README.md",
+      "title": "Week 4 \u2014 Challenges"
+    },
+    {
+      "path": "curriculum/week-04-asyncio-first-principles/challenges/challenge-01-asyncio-clone.md",
+      "title": "Challenge 1 \u2014 Build a runnable asyncio clone in 4 hours"
+    },
+    {
+      "path": "curriculum/week-04-asyncio-first-principles/exercises/README.md",
+      "title": "Week 4 \u2014 Exercises"
+    },
+    {
+      "path": "curriculum/week-04-asyncio-first-principles/homework.md",
+      "title": "Week 4 \u2014 Homework"
+    },
+    {
+      "path": "curriculum/week-04-asyncio-first-principles/lecture-notes/01-coroutines-vs-generators.md",
+      "title": "Lecture 1 \u2014 Coroutines vs. Generators, and the Awaitable Protocol"
+    },
+    {
+      "path": "curriculum/week-04-asyncio-first-principles/lecture-notes/02-the-event-loop-build-your-own.md",
+      "title": "Lecture 2 \u2014 The Event Loop, Built From Scratch"
+    },
+    {
+      "path": "curriculum/week-04-asyncio-first-principles/lecture-notes/03-tasks-futures-gather-taskgroup.md",
+      "title": "Lecture 3 \u2014 `Task`, `Future`, `gather`, and `TaskGroup`"
+    },
+    {
+      "path": "curriculum/week-04-asyncio-first-principles/mini-project/README.md",
+      "title": "Mini-Project \u2014 `mini_asyncio`: a toy `asyncio` clone"
+    },
+    {
+      "path": "curriculum/week-04-asyncio-first-principles/quiz.md",
+      "title": "Week 4 \u2014 Quiz"
+    },
+    {
+      "path": "curriculum/week-04-asyncio-first-principles/resources.md",
+      "title": "Week 4 \u2014 Resources"
+    },
+    {
+      "path": "curriculum/week-05-structured-concurrency/README.md",
+      "title": "Week 5 \u2014 Structured Concurrency, Cancellation, Back-Pressure"
+    },
+    {
+      "path": "curriculum/week-05-structured-concurrency/challenges/README.md",
+      "title": "Week 5 \u2014 Challenges"
+    },
+    {
+      "path": "curriculum/week-05-structured-concurrency/challenges/challenge-01-async-crawler-with-cancellation.md",
+      "title": "Challenge 1 \u2014 Async crawler skeleton with cancellation, in 3 hours"
+    },
+    {
+      "path": "curriculum/week-05-structured-concurrency/exercises/README.md",
+      "title": "Week 5 \u2014 Exercises"
+    },
+    {
+      "path": "curriculum/week-05-structured-concurrency/homework.md",
+      "title": "Week 5 \u2014 Homework"
+    },
+    {
+      "path": "curriculum/week-05-structured-concurrency/lecture-notes/01-nurseries-task-groups-and-structured-cancellation.md",
+      "title": "Lecture 1 \u2014 Nurseries, `TaskGroup`, and Structured Cancellation"
+    },
+    {
+      "path": "curriculum/week-05-structured-concurrency/lecture-notes/02-timeouts-shield-and-cancellation-semantics.md",
+      "title": "Lecture 2 \u2014 Timeouts, `shield`, and Cancellation Semantics"
+    },
+    {
+      "path": "curriculum/week-05-structured-concurrency/lecture-notes/03-back-pressure-with-bounded-queues.md",
+      "title": "Lecture 3 \u2014 Back-Pressure with Bounded Queues"
+    },
+    {
+      "path": "curriculum/week-05-structured-concurrency/mini-project/README.md",
+      "title": "Mini-Project \u2014 `crawl`: a robust async web crawler"
+    },
+    {
+      "path": "curriculum/week-05-structured-concurrency/quiz.md",
+      "title": "Week 5 \u2014 Quiz"
+    },
+    {
+      "path": "curriculum/week-05-structured-concurrency/resources.md",
+      "title": "Week 5 \u2014 Resources"
+    },
+    {
+      "path": "curriculum/week-06-threads-processes/README.md",
+      "title": "Week 6 \u2014 Threads, Processes, and When to Use What"
+    },
+    {
+      "path": "curriculum/week-06-threads-processes/challenges/README.md",
+      "title": "Week 6 \u2014 Challenges"
+    },
+    {
+      "path": "curriculum/week-06-threads-processes/challenges/challenge-01-3-implementations-of-same-workload.md",
+      "title": "Challenge 1 \u2014 Three Implementations of the Same Workload, in Three Hours"
+    },
+    {
+      "path": "curriculum/week-06-threads-processes/exercises/README.md",
+      "title": "Week 6 \u2014 Exercises"
+    },
+    {
+      "path": "curriculum/week-06-threads-processes/homework.md",
+      "title": "Week 6 \u2014 Homework"
+    },
+    {
+      "path": "curriculum/week-06-threads-processes/lecture-notes/01-threading-and-the-GIL-revisited.md",
+      "title": "Lecture 1 \u2014 Threading and the GIL, Revisited"
+    },
+    {
+      "path": "curriculum/week-06-threads-processes/lecture-notes/02-multiprocessing-and-when-its-wrong.md",
+      "title": "Lecture 2 \u2014 `multiprocessing` and When It's Wrong"
+    },
+    {
+      "path": "curriculum/week-06-threads-processes/lecture-notes/03-the-3-13-free-threaded-build-revisited.md",
+      "title": "Lecture 3 \u2014 The 3.13 Free-Threaded Build, Revisited"
+    },
+    {
+      "path": "curriculum/week-06-threads-processes/mini-project/README.md",
+      "title": "Mini-Project \u2014 `concurrency-bench`: Three Workloads, Every Primitive, One Memo"
+    },
+    {
+      "path": "curriculum/week-06-threads-processes/quiz.md",
+      "title": "Week 6 \u2014 Quiz"
+    },
+    {
+      "path": "curriculum/week-06-threads-processes/resources.md",
+      "title": "Week 6 \u2014 Resources"
+    },
+    {
+      "path": "curriculum/week-07-profiling-like-its-your-job/README.md",
+      "title": "Week 7 \u2014 Profiling Like It's Your Job"
+    },
+    {
+      "path": "curriculum/week-07-profiling-like-its-your-job/challenges/challenge-01-rewrite-to-10x-after-profile.md",
+      "title": "Challenge 1 \u2014 Profile, Identify, Rewrite to 10x"
+    },
+    {
+      "path": "curriculum/week-07-profiling-like-its-your-job/challenges/challenge-02-memory-bound-vs-cpu-bound-diagnosis.md",
+      "title": "Challenge 2 \u2014 Memory-Bound vs. CPU-Bound: Use `scalene` to Tell Them Apart"
+    },
+    {
+      "path": "curriculum/week-07-profiling-like-its-your-job/exercises/SOLUTIONS.md",
+      "title": "Week 7 \u2014 Exercise Solutions"
+    },
+    {
+      "path": "curriculum/week-07-profiling-like-its-your-job/exercises/exercise-03-py-spy-on-a-running-process.md",
+      "title": "Exercise 3 \u2014 Attach `py-spy` to a Running Process"
+    },
+    {
+      "path": "curriculum/week-07-profiling-like-its-your-job/homework.md",
+      "title": "Week 7 \u2014 Homework"
+    },
+    {
+      "path": "curriculum/week-07-profiling-like-its-your-job/lecture-notes/01-what-profiling-actually-measures.md",
+      "title": "Lecture 1 \u2014 What Profiling Actually Measures"
+    },
+    {
+      "path": "curriculum/week-07-profiling-like-its-your-job/lecture-notes/02-cprofile-and-line-profiler-walkthrough.md",
+      "title": "Lecture 2 \u2014 `cProfile` and `line_profiler`, End to End"
+    },
+    {
+      "path": "curriculum/week-07-profiling-like-its-your-job/lecture-notes/03-py-spy-and-scalene-for-prod-and-memory.md",
+      "title": "Lecture 3 \u2014 `py-spy` and `scalene` for Production and Memory"
+    },
+    {
+      "path": "curriculum/week-07-profiling-like-its-your-job/mini-project/README.md",
+      "title": "Mini-Project \u2014 `profile-an-oss-project`: Take a Real Python Project, Profile It, Write the Report"
+    },
+    {
+      "path": "curriculum/week-07-profiling-like-its-your-job/quiz.md",
+      "title": "Week 7 \u2014 Quiz"
+    },
+    {
+      "path": "curriculum/week-07-profiling-like-its-your-job/resources.md",
+      "title": "Week 7 \u2014 Resources"
+    },
+    {
+      "path": "curriculum/week-08-c-extensions-ctypes-cffi-cython/README.md",
+      "title": "Week 8 \u2014 C Extensions: ctypes, cffi, Cython"
+    },
+    {
+      "path": "curriculum/week-08-c-extensions-ctypes-cffi-cython/challenges/challenge-01-mandelbrot-three-ways.md",
+      "title": "Challenge 1 \u2014 Mandelbrot Three Ways"
+    },
+    {
+      "path": "curriculum/week-08-c-extensions-ctypes-cffi-cython/challenges/challenge-02-gil-release.md",
+      "title": "Challenge 2 \u2014 GIL Release and Parallel Speedup"
+    },
+    {
+      "path": "curriculum/week-08-c-extensions-ctypes-cffi-cython/exercises/SOLUTIONS.md",
+      "title": "Week 8 \u2014 Exercise Solutions"
+    },
+    {
+      "path": "curriculum/week-08-c-extensions-ctypes-cffi-cython/homework.md",
+      "title": "Week 8 \u2014 Homework"
+    },
+    {
+      "path": "curriculum/week-08-c-extensions-ctypes-cffi-cython/lecture-notes/01-why-c-extensions-and-the-c-api.md",
+      "title": "Lecture 1 \u2014 Why C Extensions, and the CPython C API in 60 Lines"
+    },
+    {
+      "path": "curriculum/week-08-c-extensions-ctypes-cffi-cython/lecture-notes/02-ctypes-and-cffi.md",
+      "title": "Lecture 2 \u2014 `ctypes` and `cffi`: Two FFIs, Three Modes"
+    },
+    {
+      "path": "curriculum/week-08-c-extensions-ctypes-cffi-cython/lecture-notes/03-cython-and-the-benchmark.md",
+      "title": "Lecture 3 \u2014 Cython and the Four-Way Benchmark on a 1D Convolution"
+    },
+    {
+      "path": "curriculum/week-08-c-extensions-ctypes-cffi-cython/mini-project/README.md",
+      "title": "Mini-Project \u2014 `c-extension-bench`: Speed Up a Pythonic Kernel by 10x or More"
+    },
+    {
+      "path": "curriculum/week-08-c-extensions-ctypes-cffi-cython/quiz.md",
+      "title": "Week 8 \u2014 Quiz"
+    },
+    {
+      "path": "curriculum/week-08-c-extensions-ctypes-cffi-cython/resources.md",
+      "title": "Week 8 \u2014 Resources"
+    },
+    {
+      "path": "curriculum/week-09-packaging-and-distribution/README.md",
+      "title": "Week 9 \u2014 Packaging and Distribution"
+    },
+    {
+      "path": "curriculum/week-09-packaging-and-distribution/challenges/challenge-01-multi-backend-comparison.md",
+      "title": "Challenge 1 \u2014 Same package, three backends, head-to-head"
+    },
+    {
+      "path": "curriculum/week-09-packaging-and-distribution/challenges/challenge-02-cibuildwheel-matrix.md",
+      "title": "Challenge 2 \u2014 `cibuildwheel` on a tiny C-extension package"
+    },
+    {
+      "path": "curriculum/week-09-packaging-and-distribution/exercises/SOLUTIONS.md",
+      "title": "Exercises \u2014 Solutions and Notes"
+    },
+    {
+      "path": "curriculum/week-09-packaging-and-distribution/homework.md",
+      "title": "Week 9 \u2014 Homework"
+    },
+    {
+      "path": "curriculum/week-09-packaging-and-distribution/lecture-notes/01-peps-and-pyproject-toml.md",
+      "title": "Lecture 1 \u2014 The Four PEPs and `pyproject.toml`"
+    },
+    {
+      "path": "curriculum/week-09-packaging-and-distribution/lecture-notes/02-build-backends-and-the-survey.md",
+      "title": "Lecture 2 \u2014 Build Backends: The Survey, the Trade-offs, the Choice"
+    },
+    {
+      "path": "curriculum/week-09-packaging-and-distribution/lecture-notes/03-wheels-manylinux-locking-publishing.md",
+      "title": "Lecture 3 \u2014 Wheels, manylinux, Locking, and Publishing"
+    },
+    {
+      "path": "curriculum/week-09-packaging-and-distribution/mini-project/README.md",
+      "title": "Mini-Project \u2014 Ship a Real Package to TestPyPI, End-to-End"
+    },
+    {
+      "path": "curriculum/week-09-packaging-and-distribution/quiz.md",
+      "title": "Week 9 \u2014 Quiz"
+    },
+    {
+      "path": "curriculum/week-09-packaging-and-distribution/resources.md",
+      "title": "Week 9 \u2014 Resources"
+    },
+    {
+      "path": "curriculum/week-10-metaprogramming-descriptors-metaclasses/README.md",
+      "title": "Week 10 \u2014 Metaprogramming, Descriptors, and Metaclasses"
+    },
+    {
+      "path": "curriculum/week-10-metaprogramming-descriptors-metaclasses/challenges/challenge-01-rewrite-property.md",
+      "title": "Challenge 1 \u2014 Rewrite `property`, `classmethod`, `staticmethod`, `cached_property` and compare against CPython"
+    },
+    {
+      "path": "curriculum/week-10-metaprogramming-descriptors-metaclasses/challenges/challenge-02-pep487-archeology.md",
+      "title": "Challenge 2 \u2014 PEP 487 archaeology: find a library that migrated from metaclass to `__init_subclass__`"
+    },
+    {
+      "path": "curriculum/week-10-metaprogramming-descriptors-metaclasses/exercises/SOLUTIONS.md",
+      "title": "Exercises \u2014 Solutions and Discussion"
+    },
+    {
+      "path": "curriculum/week-10-metaprogramming-descriptors-metaclasses/homework.md",
+      "title": "Week 10 \u2014 Homework"
+    },
+    {
+      "path": "curriculum/week-10-metaprogramming-descriptors-metaclasses/lecture-notes/01-class-decorators-and-init-subclass.md",
+      "title": "Lecture 1 \u2014 Class decorators and `__init_subclass__`"
+    },
+    {
+      "path": "curriculum/week-10-metaprogramming-descriptors-metaclasses/lecture-notes/02-descriptors-the-protocol-underneath.md",
+      "title": "Lecture 2 \u2014 Descriptors: the protocol underneath"
+    },
+    {
+      "path": "curriculum/week-10-metaprogramming-descriptors-metaclasses/lecture-notes/03-metaclasses-and-when-to-use-them.md",
+      "title": "Lecture 3 \u2014 Metaclasses, and when to use them"
+    },
+    {
+      "path": "curriculum/week-10-metaprogramming-descriptors-metaclasses/mini-project/README.md",
+      "title": "Week 10 Mini-Project \u2014 The validated-model library, four ways"
+    },
+    {
+      "path": "curriculum/week-10-metaprogramming-descriptors-metaclasses/mini-project/benchmark-results.md",
+      "title": "Benchmark results \u2014 reference run"
+    },
+    {
+      "path": "curriculum/week-10-metaprogramming-descriptors-metaclasses/mini-project/decision-tree.md",
+      "title": "The reference decision tree"
+    },
+    {
+      "path": "curriculum/week-10-metaprogramming-descriptors-metaclasses/quiz.md",
+      "title": "Week 10 \u2014 Quiz"
+    },
+    {
+      "path": "curriculum/week-10-metaprogramming-descriptors-metaclasses/resources.md",
+      "title": "Week 10 \u2014 Resources"
+    },
+    {
+      "path": "curriculum/week-11-concurrency-models-compared/README.md",
+      "title": "Week 11 \u2014 Python Concurrency Models Compared"
+    },
+    {
+      "path": "curriculum/week-11-concurrency-models-compared/challenges/challenge-01-free-threaded-audit.md",
+      "title": "Challenge 1 \u2014 Free-Threaded Build Audit"
+    },
+    {
+      "path": "curriculum/week-11-concurrency-models-compared/challenges/challenge-02-subinterpreter-pipeline.md",
+      "title": "Challenge 2 \u2014 Subinterpreter Pipeline"
+    },
+    {
+      "path": "curriculum/week-11-concurrency-models-compared/exercises/SOLUTIONS.md",
+      "title": "Week 11 \u2014 Exercise Solutions"
+    },
+    {
+      "path": "curriculum/week-11-concurrency-models-compared/homework.md",
+      "title": "Week 11 \u2014 Homework"
+    },
+    {
+      "path": "curriculum/week-11-concurrency-models-compared/lecture-notes/01-threads-and-asyncio.md",
+      "title": "Lecture 1 \u2014 Threads and Asyncio Side by Side"
+    },
+    {
+      "path": "curriculum/week-11-concurrency-models-compared/lecture-notes/02-multiprocessing-and-the-pickling-tax.md",
+      "title": "Lecture 2 \u2014 Multiprocessing and the Pickling Tax"
+    },
+    {
+      "path": "curriculum/week-11-concurrency-models-compared/lecture-notes/03-pep-703-and-pep-684-the-future.md",
+      "title": "Lecture 3 \u2014 PEP 703 (Free-Threaded) and PEP 684 (Subinterpreters)"
+    },
+    {
+      "path": "curriculum/week-11-concurrency-models-compared/mini-project/README.md",
+      "title": "Mini-Project \u2014 The Five-Way Document Scorer"
+    },
+    {
+      "path": "curriculum/week-11-concurrency-models-compared/mini-project/benchmark-results.md",
+      "title": "Reference Benchmark Results"
+    },
+    {
+      "path": "curriculum/week-11-concurrency-models-compared/mini-project/decision-tree.md",
+      "title": "Decision Tree \u2014 Python Concurrency in 2026"
+    },
+    {
+      "path": "curriculum/week-11-concurrency-models-compared/quiz.md",
+      "title": "Week 11 \u2014 Quiz"
+    },
+    {
+      "path": "curriculum/week-11-concurrency-models-compared/resources.md",
+      "title": "Week 11 \u2014 Resources"
+    },
+    {
+      "path": "curriculum/week-12-capstone-perf-tuned-python-project/README.md",
+      "title": "Week 12 \u2014 Capstone: Perf-Tuned Python Project"
+    },
+    {
+      "path": "curriculum/week-12-capstone-perf-tuned-python-project/challenges/challenge-01-end-to-end-rehearsal.md",
+      "title": "Challenge 01 \u2014 End-to-End Rehearsal (one-day dry run)"
+    },
+    {
+      "path": "curriculum/week-12-capstone-perf-tuned-python-project/challenges/challenge-02-reproducibility-audit.md",
+      "title": "Challenge 02 \u2014 Reproducibility Audit"
+    },
+    {
+      "path": "curriculum/week-12-capstone-perf-tuned-python-project/exercises/SOLUTIONS.md",
+      "title": "Exercise Solutions \u2014 Week 12"
+    },
+    {
+      "path": "curriculum/week-12-capstone-perf-tuned-python-project/lecture-notes/01-capstone-scoping-and-the-tier-ladder.md",
+      "title": "Lecture 01 \u2014 Capstone Scoping and the Tier Ladder"
+    },
+    {
+      "path": "curriculum/week-12-capstone-perf-tuned-python-project/lecture-notes/02-packaging-end-to-end-with-testpypi.md",
+      "title": "Lecture 02 \u2014 Packaging End to End with TestPyPI"
+    },
+    {
+      "path": "curriculum/week-12-capstone-perf-tuned-python-project/lecture-notes/03-the-benchmark-report-as-deliverable.md",
+      "title": "Lecture 03 \u2014 The Benchmark Report as Deliverable"
+    },
+    {
+      "path": "curriculum/week-12-capstone-perf-tuned-python-project/quiz.md",
+      "title": "Final Exam \u2014 C17 Crunch Pro Python Advanced (W1\u2013W12 cumulative)"
+    },
+    {
+      "path": "curriculum/week-12-capstone-perf-tuned-python-project/resources.md",
+      "title": "Week 12 Resources \u2014 Capstone: Perf-Tuned Python Project"
+    }
+  ]
+}
