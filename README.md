@@ -4,7 +4,7 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![Built in the open](https://img.shields.io/badge/built-in%20the%20open-B98F3E.svg)](https://github.com/CODE-CRUNCH-CLUB)
+[![Built in the open](https://img.shields.io/badge/built-in%20the%20open-B98F3E.svg)](https://github.com/CODECRUNCHWORLDWIDE)
 
 This is the highest-level Python track in the Code Crunch curriculum. It assumes you have completed **C1** and at least one of **C5** (Data Science) or **C16** (Web Backend), or have equivalent professional Python experience. C17 takes you from "competent Python developer" to "open-source maintainer caliber."
 
