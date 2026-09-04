@@ -28,6 +28,15 @@ By the end of this week, you will be able to:
 - **Diagnose** the four canonical async bugs: the leaked task (no parent waiting), the swallowed cancellation (`except Exception:` over an `await`), the deadlocked queue (producer never closes, consumer waits forever), the silent timeout (a sibling task absorbs the timeout-induced cancel).
 - **Cite** the PEPs and source files from memory: PEP 654 (ExceptionGroup), PEP 657 (fine-grained tracebacks, related), Trio's nursery essay, `Lib/asyncio/taskgroups.py`, `Lib/asyncio/timeouts.py`, `Lib/asyncio/queues.py`, `Lib/asyncio/tasks.py:shield`.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `COP 3337` — Raise, propagate and handle exceptions, and design what a failing operation promises its caller. |
+| Industry | Ship async code that cancels cleanly under load, so a timeout firing mid-request leaves no half-written record and no task nobody is waiting on. |
+| Beyond the bar | It names the four cancellation bugs and shows each one failing, including the `except Exception:` clause that swallowed `CancelledError` before Python 3.8 — `lecture-notes/02-timeouts-shield-and-cancellation-semantics.md` |
+
+
 ## Prerequisites
 
 - **C17 Weeks 1–4** completed. You should be able to draw the `Task.__step` algorithm on a whiteboard, explain the `Future` state machine, and know what `gather(*coros)` does on first failure.

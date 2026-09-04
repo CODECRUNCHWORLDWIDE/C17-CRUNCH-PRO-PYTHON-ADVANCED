@@ -20,6 +20,15 @@ By the end of this week, you will be able to:
 - **Reason** about `weakref` — when it solves a problem, when it just defers one.
 - **Tour** the cyclic garbage collector's three generations and explain why they exist.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `EECS 280` — Reason about object lifetime and dynamic memory: when storage is allocated, who owns it, when it is released, and what one instance of a class costs. |
+| Industry | Take a service whose resident memory grows overnight, reproduce the growth deterministically, and name the file and line that is holding the objects alive. |
+| Beyond the bar | The leak hunt runs against a real codebase with `tracemalloc`, `memray` and `objgraph`, and the deliverable is the evidence rather than the patch — `challenges/challenge-01-hunt-a-leak.md` |
+
+
 ## Prerequisites
 
 - **C17 Week 1** completed.

@@ -39,6 +39,15 @@ By the end of this week, you will be able to:
 - **Diagnose** the three canonical profiling failures: (1) optimising the wrong function (the cProfile table's top entry by `cumulative` is `<built-in method builtins.exec>`, you "optimise" it, nothing changes); (2) measuring the warm-up phase (you profiled a 10-second run that included 8 seconds of module import); (3) measuring an unrepresentative workload (you profiled on 100 rows of input; production has 100 million).
 - **Cite** the relevant PEPs and source files: PEP 657 (fine-grained location for tracebacks, 3.11; relevant because profilers now report instruction-level positions), PEP 669 (`sys.monitoring`, 3.12; the new low-overhead profiling API), `Lib/cProfile.py`, `Modules/_lsprof.c`, the py-spy and scalene READMEs.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `EECS 280` — Debug and test a program systematically, using tools, rather than by inspection and guessing. |
+| Industry | Attach to a production process that is stuck, take a stack sample without restarting it, and hand back a report that names the hot path. |
+| Beyond the bar | The exercises publish the actual `cProfile` tables, on stated hardware and a stated CPython build, so a learner can check their own numbers against them — `exercises/SOLUTIONS.md` |
+
+
 ## Prerequisites
 
 - **C17 Weeks 1–6** completed. In particular: Week 1 (CPython mental model; the interpreter loop; bytecode), Week 3 (the GIL; you cannot understand a multi-threaded profile without knowing what the GIL is doing during sampling), Week 6 (concurrency primitives and the benchmarking discipline; this week extends that discipline from wall-clock-only to per-function and per-line).

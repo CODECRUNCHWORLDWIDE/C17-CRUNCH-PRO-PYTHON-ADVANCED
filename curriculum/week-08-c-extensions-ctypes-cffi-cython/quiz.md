@@ -11,6 +11,13 @@ Ten questions. Lectures closed.
 - C) Will run at 10x the speed of the typed version because skipping `argtypes` skips a check.
 - D) Is identical to a `cffi` API-mode call.
 
+<details>
+<summary>Answer</summary>
+
+**B** — Always set argtypes/restype; default coercion silently corrupts on non-trivial signatures. Lecture 2 §3.1.
+
+</details>
+
 ---
 
 **Q2.** The cffi *API mode* differs from ABI mode in that:
@@ -19,6 +26,13 @@ Ten questions. Lectures closed.
 - B) API mode requires a one-time C-compiler build step (at install or in the wheel pipeline), generates a CPython C extension at the binding boundary, and produces ~10x lower per-call overhead than ABI mode. ABI mode is `ctypes`-equivalent — runtime binding through libffi.
 - C) API mode only works on Linux.
 - D) API mode is what PyPy uses; ABI mode is what CPython uses.
+
+<details>
+<summary>Answer</summary>
+
+**B** — API mode is build-time-compiled and ~10x faster per call; ABI mode is libffi-based, ctypes-equivalent. Lecture 2 §§4, 5.
+
+</details>
 
 ---
 
@@ -29,6 +43,13 @@ Ten questions. Lectures closed.
 - C) Refuses to compile.
 - D) Releases the GIL automatically.
 
+<details>
+<summary>Answer</summary>
+
+**B** — Untyped Cython is ~Python speed. The speedup comes from *types*. Lecture 3 §§2.1, 2.2.
+
+</details>
+
 ---
 
 **Q4.** A Cython typed memoryview declared `double[::1] x` requires:
@@ -37,6 +58,13 @@ Ten questions. Lectures closed.
 - B) The input must export the buffer protocol (NumPy array, `array.array`, `memoryview`, `bytes`, ...) with `dtype=float64` and *C-contiguous* layout (the `::1` declares contiguity). The kernel accesses elements with one C-level indexed load each, no Python overhead.
 - C) The input must be a Cython object created by `cython.array(...)`.
 - D) The `::1` is a typo; the correct syntax is `double[]`.
+
+<details>
+<summary>Answer</summary>
+
+**B** — Buffer-protocol producer, dtype=float64, C-contiguous. Lecture 3 §3.
+
+</details>
 
 ---
 
@@ -47,6 +75,13 @@ Ten questions. Lectures closed.
 - C) Is mandatory in all `.pyx` files.
 - D) Is the same as `@cython.boundscheck(False)`.
 
+<details>
+<summary>Answer</summary>
+
+**B** — Release GIL; C-only code inside; enables thread-level parallelism. Lecture 3 §2.4; Lecture 1 §4.
+
+</details>
+
 ---
 
 **Q6.** `ctypes` per-call overhead is roughly:
@@ -55,6 +90,13 @@ Ten questions. Lectures closed.
 - B) 1–3 microseconds, dominated by argument marshalling and the libffi dispatch. For a C function that does ~1 µs of useful work, this overhead is 50% of the runtime — and the right fix is to call C *less often with more data*, not the opposite.
 - C) 1 millisecond.
 - D) Zero; ctypes is a compile-time binding.
+
+<details>
+<summary>Answer</summary>
+
+**B** — ~1–3 µs per call; the fix is batching. Lecture 2 §3.3.
+
+</details>
 
 ---
 
@@ -65,6 +107,13 @@ Ten questions. Lectures closed.
 - C) Are deprecated in 3.13.
 - D) Are macros that expand to no-ops on Linux.
 
+<details>
+<summary>Answer</summary>
+
+**B** — Release and restore the GIL around pure-C work. Lecture 1 §4.
+
+</details>
+
 ---
 
 **Q8.** The recommended path for *wrapping an existing C library* (the binding is the product) in 2026 is:
@@ -73,6 +122,13 @@ Ten questions. Lectures closed.
 - B) `cffi` API mode: compile-time verification of declarations against the real C headers, ~10x lower per-call overhead than ABI mode, the precedent of `cryptography`, `bcrypt`, `psycopg2-c`, and `argon2-cffi`. ctypes is acceptable for trivial bindings and for system libraries you do not own.
 - C) Cython, regardless of whether you wrote the C.
 - D) PyO3, even if the library is in C.
+
+<details>
+<summary>Answer</summary>
+
+**B** — cffi API mode for the wrapper case; cryptography is the precedent. Lecture 2 §5; the cryptography FAQ.
+
+</details>
 
 ---
 
@@ -83,6 +139,13 @@ Ten questions. Lectures closed.
 - C) Refuse to accept a NumPy array.
 - D) Automatically release the GIL.
 
+<details>
+<summary>Answer</summary>
+
+**B** — Faster, at the cost of safety. Use after testing. Lecture 3 §2.4; SOLUTIONS Exercise 3.
+
+</details>
+
 ---
 
 **Q10.** The four-way benchmark on a 1D convolution (Lecture 3) showed NumPy ~5–10x faster than the tight Cython kernel. The reason is:
@@ -92,25 +155,14 @@ Ten questions. Lectures closed.
 - C) The benchmark was on the wrong CPU.
 - D) NumPy uses ctypes internally and is therefore subject to libffi overhead.
 
----
-
-## Answer key
-
 <details>
-<summary>Reveal</summary>
+<summary>Answer</summary>
 
-1. **B** — Always set argtypes/restype; default coercion silently corrupts on non-trivial signatures. Lecture 2 §3.1.
-2. **B** — API mode is build-time-compiled and ~10x faster per call; ABI mode is libffi-based, ctypes-equivalent. Lecture 2 §§4, 5.
-3. **B** — Untyped Cython is ~Python speed. The speedup comes from *types*. Lecture 3 §§2.1, 2.2.
-4. **B** — Buffer-protocol producer, dtype=float64, C-contiguous. Lecture 3 §3.
-5. **B** — Release GIL; C-only code inside; enables thread-level parallelism. Lecture 3 §2.4; Lecture 1 §4.
-6. **B** — ~1–3 µs per call; the fix is batching. Lecture 2 §3.3.
-7. **B** — Release and restore the GIL around pure-C work. Lecture 1 §4.
-8. **B** — cffi API mode for the wrapper case; cryptography is the precedent. Lecture 2 §5; the cryptography FAQ.
-9. **B** — Faster, at the cost of safety. Use after testing. Lecture 3 §2.4; SOLUTIONS Exercise 3.
-10. **B** — Hand-tuned SIMD + algorithmic switch (FFT for big kernels). Lecture 3 §6.
+**B** — Hand-tuned SIMD + algorithmic switch (FFT for big kernels). Lecture 3 §6.
 
 </details>
+
+---
 
 ## Self-reflection
 

@@ -38,6 +38,15 @@ By the end of this week, you will be able to:
 - **Articulate** PEP 684 / PEP 734 — what a subinterpreter is, why each one having its own GIL is the headline, what `interpreters.Queue` does, what the limitations are (no shared mutable state, restricted pickle subset for transit).
 - **Decide**. Given a real workload (HTTP-API fanout, image processing, training-data preprocessing, log aggregation), pick the right model and defend the choice in two sentences.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | Past the outcome set: five concurrency models, the free-threaded build and per-interpreter GILs are on no second programming course’s syllabus. |
+| Industry | Choose a concurrency model for a real workload and defend it with a benchmark somebody else can rerun on their own machine. |
+| Beyond the bar | The measurements are published as a table, including runs against the free-threaded build and PEP 734 subinterpreters — `mini-project/benchmark-results.md` |
+
+
 ## Prerequisites
 
 - **C17 Weeks 1–10** completed. Week 3's coverage of the GIL is directly load-bearing this week; Week 4's coverage of asyncio is the foundation for Tuesday's lecture; Week 6's coverage of threads and processes is the foundation for Monday's.

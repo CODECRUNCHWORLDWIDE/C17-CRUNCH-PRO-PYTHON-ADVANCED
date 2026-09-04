@@ -26,6 +26,61 @@ If you don't yet know what the GIL is, why `list.append` is `O(1)` amortized, or
 
 ---
 
+## Standards & equivalency
+
+> C17 stands in for the object-oriented half of a university's second programming course, taught in one language and pushed down into the runtime underneath it.
+
+**University equivalent.** Programming II / Object-Oriented Programming — `COP 3337`, `CS 106B`, `CS 61B`, `EECS 280`. Coverage: partial.
+
+Partial is meant literally, and it is one gap rather than a general thinness. C17 teaches the design ideas that course is built on — what a class instance actually holds and costs, inheritance and subclass customisation, programming to an interface, exceptions and what a failing operation promises its caller, unit tests, and the first serious multi-file program that another person can install and run. It teaches all of that in Python. What it does not teach is a statically typed language and a compiler that enforces generics before the program runs. C17 touches typing only where packaging and tooling need it — `py.typed`, `mypy` and `pyright` cooperation, PEP 484 / 585 / 604 / 695 in the capstone — so that row is marked `lighter` below and is recorded in the ledger's `stillToAdd`. If your course grades a statically typed language, take [C9 · Crunch Sharp](https://github.com/CODECRUNCHWORLDWIDE/C9-CRUNCH-SHARP) instead; it carries the same ledger entry at full coverage.
+
+C17 carries no credit, no transcript entry, no accreditation and no proctored exam. The equivalence is one of **content and skill**: the outcomes below are taught here at the same depth or deeper, and each one is assessed. What a registrar records is not something an open repository can give you.
+
+| University outcome | Where this course teaches it | Depth |
+| --- | --- | --- |
+| Design classes with encapsulation: know what an instance holds, what it costs, and how an attribute access actually resolves | [Week 02](curriculum/week-02-refcounting-gc-memory/) and [Week 10](curriculum/week-10-metaprogramming-descriptors-metaclasses/) | deeper |
+| Use inheritance and polymorphism, including cooperative `super()` and the failure modes of multiple inheritance | [Week 10](curriculum/week-10-metaprogramming-descriptors-metaclasses/) | same |
+| Program to an interface: state the protocol an object must satisfy, then write interchangeable implementations against it | [Week 04](curriculum/week-04-asyncio-first-principles/) and [Week 06](curriculum/week-06-threads-processes/) | same |
+| Raise, propagate and handle exceptions, and design what a failing operation promises its caller | [Week 05](curriculum/week-05-structured-concurrency/) | deeper |
+| Reason about object lifetime and dynamic memory: when storage is allocated, who owns it, and when it is released | [Week 02](curriculum/week-02-refcounting-gc-memory/) | deeper |
+| Use generics and a type system enforced before the program runs | [Week 10](curriculum/week-10-metaprogramming-descriptors-metaclasses/) and [Week 12](curriculum/week-12-capstone-perf-tuned-python-project/) | lighter |
+| Write unit tests for your own code and run them from the command line | [Week 03](curriculum/week-03-bytecode-stack-machine-gil/), [Week 04](curriculum/week-04-asyncio-first-principles/), [Week 06](curriculum/week-06-threads-processes/) and [Week 09](curriculum/week-09-packaging-and-distribution/) | same |
+| Debug and measure a program systematically, with tools, rather than by inspection and guessing | [Week 07](curriculum/week-07-profiling-like-its-your-job/) | deeper |
+| Compile and link a multi-file program, and reason about what crosses the boundary between separately built units | [Week 08](curriculum/week-08-c-extensions-ctypes-cffi-cython/) | same |
+| Deliver the first serious multi-file program: a package layout, a build, and an artefact a stranger can install and run | [Week 09](curriculum/week-09-packaging-and-distribution/) and [Week 12](curriculum/week-12-capstone-perf-tuned-python-project/) | deeper |
+
+Every row points at a week that **assigns work** on that outcome — an exercise, a challenge, a quiz item, homework or the mini-project — not a week that only mentions it. The one `lighter` row is the declared gap and is the same gap the ledger records.
+
+**The industry bar.** What an employer expects of somebody paid to write Python at this level, and where C17 makes the learner do it.
+
+| What the job expects | Where this course does it |
+| --- | --- |
+| Work lands as a commit in a repository you own, not a file on your desktop | every mini-project specifies the repository by name and what must be in it — for example [`curriculum/week-04-asyncio-first-principles/mini-project/README.md`](curriculum/week-04-asyncio-first-principles/mini-project/README.md) |
+| You read code you did not write and form a judgement on it | [`curriculum/week-10-metaprogramming-descriptors-metaclasses/challenges/challenge-02-pep487-archeology.md`](curriculum/week-10-metaprogramming-descriptors-metaclasses/challenges/challenge-02-pep487-archeology.md), where the deliverable is a memo on a real library's migration diff, and [`curriculum/week-01-cpython-internals-and-the-mental-model/challenges/challenge-02-find-a-builtin.md`](curriculum/week-01-cpython-internals-and-the-mental-model/challenges/challenge-02-find-a-builtin.md) |
+| Tests exist, and the command to run them is written down | the acceptance checklists in the Week 03, 04, 06 and 09 mini-projects — `pytest tests/` on named CPython versions, for example [`curriculum/week-06-threads-processes/mini-project/README.md`](curriculum/week-06-threads-processes/mini-project/README.md) |
+| Dependencies are isolated per project | [`curriculum/week-09-packaging-and-distribution/challenges/challenge-01-multi-backend-comparison.md`](curriculum/week-09-packaging-and-distribution/challenges/challenge-01-multi-backend-comparison.md) — build in one environment, install into a fresh one, prove it works there |
+| A linter and a type checker, configured where the rest of the project is configured | [`curriculum/week-09-packaging-and-distribution/lecture-notes/01-peps-and-pyproject-toml.md`](curriculum/week-09-packaging-and-distribution/lecture-notes/01-peps-and-pyproject-toml.md) — `[tool.ruff]`, `[tool.mypy]` and `[tool.pytest.ini_options]` in one `pyproject.toml` |
+| A pipeline that runs on a push, not on your laptop | [`curriculum/week-09-packaging-and-distribution/mini-project/README.md`](curriculum/week-09-packaging-and-distribution/mini-project/README.md) — a `.github/workflows/publish.yml` that publishes on a tag with no token stored anywhere |
+| You diagnose from what the tools actually print | [`curriculum/week-07-profiling-like-its-your-job/exercises/SOLUTIONS.md`](curriculum/week-07-profiling-like-its-your-job/exercises/SOLUTIONS.md) — `cProfile` tables captured from a real run, on stated hardware and a stated CPython build. C17 carries no `Common bugs to catch` blocks quoting tracebacks; what it has instead is a named failure-mode section per topic and the real output of `dis`, `cProfile`, `py-spy` and `scalene` to read it against |
+| The output is portfolio-grade: it runs from a clean clone by following the README | [`curriculum/week-12-capstone-perf-tuned-python-project/challenges/challenge-02-reproducibility-audit.md`](curriculum/week-12-capstone-perf-tuned-python-project/challenges/challenge-02-reproducibility-audit.md) — hand the benchmark to a peer, watch them fail, close every gap |
+| The practice is named, not implied | the `## Standards this week meets` block in all twelve week READMEs |
+
+**Beyond both bars.** Clearing the two floors is entry, not success. Open any of these and check in under a minute.
+
+| What we add | Which bar it beats | Where it lives |
+| --- | --- | --- |
+| Every quiz publishes its full answer key with the reasoning and the CPython source file behind each answer, folded under the questions — nothing is withheld until a deadline | both | [`curriculum/week-05-structured-concurrency/quiz.md`](curriculum/week-05-structured-concurrency/quiz.md) |
+| Weeks 7 to 12 publish a worked solutions document for every exercise, including the numbers the learner should see and the wrong reading they should avoid | both | [`curriculum/week-07-profiling-like-its-your-job/exercises/SOLUTIONS.md`](curriculum/week-07-profiling-like-its-your-job/exercises/SOLUTIONS.md) |
+| Three weeks sit inside the interpreter itself — build CPython from source, read the evaluation loop in `Python/ceval.c`, watch PEP 659 specialise an opcode and then deoptimise it | university | [`curriculum/week-03-bytecode-stack-machine-gil/lecture-notes/01-the-evaluation-loop-deep-dive.md`](curriculum/week-03-bytecode-stack-machine-gil/lecture-notes/01-the-evaluation-loop-deep-dive.md) |
+| Every concurrency claim is settled by measurement, not assertion: one workload implemented five ways, run on two CPython builds, reduced to a table and a decision tree a teammate can use | both | [`curriculum/week-11-concurrency-models-compared/mini-project/decision-tree.md`](curriculum/week-11-concurrency-models-compared/mini-project/decision-tree.md) |
+| A code-reading assignment whose deliverable is a memo rather than a program — what a real library changed when PEP 487 landed, and why one major project chose not to | industry | [`curriculum/week-10-metaprogramming-descriptors-metaclasses/challenges/challenge-02-pep487-archeology.md`](curriculum/week-10-metaprogramming-descriptors-metaclasses/challenges/challenge-02-pep487-archeology.md) |
+| The course teaches against the free-threaded build and subinterpreters — PEP 703, PEP 684, PEP 734 — and asks the learner to audit their own dependencies on `python3.13t` | university | [`curriculum/week-11-concurrency-models-compared/challenges/challenge-01-free-threaded-audit.md`](curriculum/week-11-concurrency-models-compared/challenges/challenge-01-free-threaded-audit.md) |
+| The learner finishes holding a package published to TestPyPI and a benchmark report written to be reproduced — hardware, seed, warm-up, median and interval all stated — not a grade only a registrar can see | both | [`curriculum/week-12-capstone-perf-tuned-python-project/lecture-notes/03-the-benchmark-report-as-deliverable.md`](curriculum/week-12-capstone-perf-tuned-python-project/lecture-notes/03-the-benchmark-report-as-deliverable.md) |
+
+**Gaps we declare.** One against the outcome set: static typing and compile-time enforcement, as recorded in the ledger — C17 uses type hints and type checkers as tooling but never teaches a compiled type system, and a course that grades generics in Java or C++ is not covered here. Three against our own surpass rule, stated so nobody discovers them later: worked solutions are published for the Weeks 7 to 12 exercises only, and Weeks 1 to 6 carry an exercise index with no separate answer document; the homework problems have no published answers in any week; and C17 ships no collapsible `Under the hood` blocks, because at this level the internals are the lesson rather than an aside — they are the body text of every lecture note.
+
+---
+
 ## Prerequisites
 
 You should be able to do **everything** in C1 weeks 1–15, plus at least one of:

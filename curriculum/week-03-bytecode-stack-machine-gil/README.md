@@ -19,6 +19,15 @@ By the end of this week, you will be able to:
 - **Reason about** the four concurrent runtime modes in 2026 CPython: stock GIL build, **PEP 703** free-threaded build (`python3.13t`), **PEP 684** per-interpreter GIL via `concurrent.interpreters`, and the multi-process escape hatch.
 - **Instrument** code with `sys.monitoring` (PEP 669) — the modern, low-overhead alternative to `sys.settrace` — and explain when each is appropriate.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | Past the outcome set: no second programming course reads its own language’s evaluation loop, watches an opcode specialise at runtime, or says precisely what a global interpreter lock protects and what it does not. |
+| Industry | Explain to a team, with a measurement instead of folklore, why one loop is an order of magnitude slower than another that looks identical to it. |
+| Beyond the bar | The learner instruments a running program with `sys.monitoring` and prints every instruction as it executes — `mini-project/README.md` |
+
+
 ## Prerequisites
 
 - **C17 Weeks 1 and 2** completed. You should be able to read `dis.dis(f)` output without help, sketch the `PyObject` struct, and explain `Py_INCREF`.

@@ -11,6 +11,13 @@ Ten questions. Lectures closed.
 - C) A reference count and a hash value.
 - D) A type pointer and a payload size.
 
+<details>
+<summary>Answer</summary>
+
+**B** — refcount + type pointer (then payload, which varies).
+
+</details>
+
 ---
 
 **Q2.** `sys.getrefcount(x)` reports a count of 3 immediately after `x = []`. What's the "real" count?
@@ -22,6 +29,13 @@ Ten questions. Lectures closed.
 
 (Re-read the options carefully.)
 
+<details>
+<summary>Answer</summary>
+
+**C** — real count is 2: the `x` binding plus `getrefcount`'s argument. The reported value is 3.
+
+</details>
+
 ---
 
 **Q3.** Why is `gc.collect()` needed at all, given refcounting?
@@ -30,6 +44,13 @@ Ten questions. Lectures closed.
 - B) Refcounting cannot reclaim cyclic garbage.
 - C) The GC handles freeing memory the refcounter can't see.
 - D) Both B and C are essentially the same answer.
+
+<details>
+<summary>Answer</summary>
+
+**D** — both B and C are saying the same thing. The technical answer is B; C is the casual phrasing.
+
+</details>
 
 ---
 
@@ -40,6 +61,13 @@ Ten questions. Lectures closed.
 - C) Adds runtime type-checking on `x` and `y`.
 - D) Makes the class immutable.
 
+<details>
+<summary>Answer</summary>
+
+**B** — replaces `__dict__` with fixed slots. Memory win; loss of dynamic attributes.
+
+</details>
+
 ---
 
 **Q5.** `weakref.ref(obj)`:
@@ -48,6 +76,13 @@ Ten questions. Lectures closed.
 - B) Returns a tuple containing `obj` and its refcount.
 - C) Increments the refcount of `obj` but doesn't store a strong reference.
 - D) Deletes the object immediately.
+
+<details>
+<summary>Answer</summary>
+
+**A** — callable returning the object or `None`. Refcount is NOT incremented.
+
+</details>
 
 ---
 
@@ -58,6 +93,13 @@ Ten questions. Lectures closed.
 - C) A `Server` class with `__slots__ = ("name",)`.
 - D) Both B and C.
 
+<details>
+<summary>Answer</summary>
+
+**D** — both. `list` doesn't support weakref; `__slots__` without `"__weakref__"` removes the support.
+
+</details>
+
 ---
 
 **Q7.** CPython's cyclic GC has three generations because:
@@ -66,6 +108,13 @@ Ten questions. Lectures closed.
 - B) Three is a tunable parameter; modern CPython actually has more.
 - C) The first version had three; backwards compatibility forces it.
 - D) Each generation maps to a thread.
+
+<details>
+<summary>Answer</summary>
+
+**A** — generational hypothesis: most objects die young.
+
+</details>
 
 ---
 
@@ -76,6 +125,13 @@ Ten questions. Lectures closed.
 - C) The total memory difference as an integer.
 - D) Nothing — it prints and returns None.
 
+<details>
+<summary>Answer</summary>
+
+**B** — list of statistics per source line, sorted by size difference.
+
+</details>
+
 ---
 
 **Q9.** A leak symptom: a global `cache = {}` grows unboundedly across requests. The fix is:
@@ -84,6 +140,13 @@ Ten questions. Lectures closed.
 - B) Replace with `functools.lru_cache(maxsize=128)` if values are derived from the args.
 - C) Add manual `cache.clear()` at scheduled intervals.
 - D) Any of A, B, or C, depending on the access pattern.
+
+<details>
+<summary>Answer</summary>
+
+**D** — depends on the pattern. All three are valid in different scenarios.
+
+</details>
 
 ---
 
@@ -94,24 +157,13 @@ Ten questions. Lectures closed.
 - C) Refcounts are signed 64-bit integers (used to be 32-bit).
 - D) Refcounts are stored in a side table, not on the object.
 
----
-
-## Answer key
-
 <details>
-<summary>Reveal</summary>
+<summary>Answer</summary>
 
-1. **B** — refcount + type pointer (then payload, which varies).
-2. **C** — real count is 2: the `x` binding plus `getrefcount`'s argument. The reported value is 3.
-3. **D** — both B and C are saying the same thing. The technical answer is B; C is the casual phrasing.
-4. **B** — replaces `__dict__` with fixed slots. Memory win; loss of dynamic attributes.
-5. **A** — callable returning the object or `None`. Refcount is NOT incremented.
-6. **D** — both. `list` doesn't support weakref; `__slots__` without `"__weakref__"` removes the support.
-7. **A** — generational hypothesis: most objects die young.
-8. **B** — list of statistics per source line, sorted by size difference.
-9. **D** — depends on the pattern. All three are valid in different scenarios.
-10. **B** — biased reference counting (PEP 703).
+**B** — biased reference counting (PEP 703).
 
 </details>
 
 If 9+: ship homework. 7-8: re-read Lecture 1 and 3. <7: re-read all three lectures.
+
+---

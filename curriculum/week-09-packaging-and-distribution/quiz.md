@@ -11,6 +11,13 @@ Ten questions. Lectures closed.
 - C) The wheel binary format, with the `.whl` filename convention.
 - D) The trusted-publishing OIDC protocol for PyPI.
 
+<details>
+<summary>Answer</summary>
+
+**B** — PEP 517 is the build-system interface (Lecture 1 §2). The standard that decoupled `pip` from any specific backend.
+
+</details>
+
 ---
 
 **Q2.** The `[build-system]` table in `pyproject.toml` (PEP 518) requires:
@@ -19,6 +26,13 @@ Ten questions. Lectures closed.
 - B) `requires` (a list of PEP 508 dependency specifiers for the build environment) and `build-backend` (a dotted Python module path that `pip` imports to get the PEP 517 hooks). The `requires` list is installed into an *isolated* environment before the backend is invoked.
 - C) A `setup.py` next to it.
 - D) An entry under `[project.scripts]`.
+
+<details>
+<summary>Answer</summary>
+
+**B** — `[build-system]` requires `requires` and `build-backend` (Lecture 1 §3; PEP 518).
+
+</details>
 
 ---
 
@@ -29,6 +43,13 @@ Ten questions. Lectures closed.
 - C) The wheel filename convention.
 - D) Trusted publishing.
 
+<details>
+<summary>Answer</summary>
+
+**B** — PEP 621 defines the `[project]` table (Lecture 1 §4).
+
+</details>
+
 ---
 
 **Q4.** A wheel filename `mypkg-0.1.0-cp313-cp313-manylinux_2_28_x86_64.whl` says:
@@ -37,6 +58,13 @@ Ten questions. Lectures closed.
 - B) Built with PyPy 3.13.
 - C) Pure-Python, works anywhere.
 - D) The filename is invalid; manylinux tags do not use underscores.
+
+<details>
+<summary>Answer</summary>
+
+**A** — Wheel-tag decomposition: `cp313` Python tag = CPython 3.13; same again for ABI; `manylinux_2_28_x86_64` platform (Lecture 3 §1; PEP 425).
+
+</details>
 
 ---
 
@@ -47,6 +75,13 @@ Ten questions. Lectures closed.
 - C) The wheel has 28 dependencies.
 - D) The wheel is restricted to Linux distros from 2028.
 
+<details>
+<summary>Answer</summary>
+
+**B** — manylinux_2_28 = "Linux with glibc >= 2.28" per PEP 600 (Lecture 3 §3).
+
+</details>
+
 ---
 
 **Q6.** A *lockfile* (`uv.lock`, `poetry.lock`, `pip-tools` `requirements.lock`) records:
@@ -55,6 +90,13 @@ Ten questions. Lectures closed.
 - B) The full resolved dependency tree — every direct *and* transitive dependency, pinned by version *and* hash, across every platform you support. The point: reproducible installs. Different from `[project.dependencies]` in `pyproject.toml`, which states pins for direct deps only.
 - C) The build backend's internal state.
 - D) The OIDC token used by trusted publishing.
+
+<details>
+<summary>Answer</summary>
+
+**B** — Lockfile vs. pinning: lockfile pins transitive deps with hashes (Lecture 3 §6).
+
+</details>
 
 ---
 
@@ -65,6 +107,13 @@ Ten questions. Lectures closed.
 - C) Requires you to sign every release with a GPG key.
 - D) Only works for projects with paid PyPI accounts.
 
+<details>
+<summary>Answer</summary>
+
+**B** — Trusted publishing via OIDC; no stored secret (Lecture 3 §8 Path 2; PEP 740).
+
+</details>
+
 ---
 
 **Q8.** PEP 660 ("Editable installs for pyproject.toml based builds") adds:
@@ -73,6 +122,13 @@ Ten questions. Lectures closed.
 - B) Two hooks to the PEP 517 interface (`build_editable` and `get_requires_for_build_editable`) so `pip install -e .` works for any PEP 517 backend that implements them. As of 2026, all major backends (setuptools, hatchling, flit-core, pdm-backend, poetry-core) do.
 - C) Support for static type checking.
 - D) The manylinux platform tag scheme.
+
+<details>
+<summary>Answer</summary>
+
+**B** — PEP 660 hooks for editable installs (Lecture 1 §5).
+
+</details>
 
 ---
 
@@ -83,6 +139,13 @@ Ten questions. Lectures closed.
 - C) poetry-core (because poetry has the most users).
 - D) uv_build (the latest tool).
 
+<details>
+<summary>Answer</summary>
+
+**B** — hatchling is the modern pure-Python default (Lecture 2 §3, §11).
+
+</details>
+
 ---
 
 **Q10.** The recommended versioning strategy for a new library is:
@@ -92,25 +155,14 @@ Ten questions. Lectures closed.
 - C) CalVer always; SemVer is obsolete.
 - D) Use the current date as the version on every commit.
 
----
-
-## Answer key
-
 <details>
-<summary>Reveal</summary>
+<summary>Answer</summary>
 
-1. **B** — PEP 517 is the build-system interface (Lecture 1 §2). The standard that decoupled `pip` from any specific backend.
-2. **B** — `[build-system]` requires `requires` and `build-backend` (Lecture 1 §3; PEP 518).
-3. **B** — PEP 621 defines the `[project]` table (Lecture 1 §4).
-4. **A** — Wheel-tag decomposition: `cp313` Python tag = CPython 3.13; same again for ABI; `manylinux_2_28_x86_64` platform (Lecture 3 §1; PEP 425).
-5. **B** — manylinux_2_28 = "Linux with glibc >= 2.28" per PEP 600 (Lecture 3 §3).
-6. **B** — Lockfile vs. pinning: lockfile pins transitive deps with hashes (Lecture 3 §6).
-7. **B** — Trusted publishing via OIDC; no stored secret (Lecture 3 §8 Path 2; PEP 740).
-8. **B** — PEP 660 hooks for editable installs (Lecture 1 §5).
-9. **B** — hatchling is the modern pure-Python default (Lecture 2 §3, §11).
-10. **B** — SemVer + setuptools_scm/hatch-vcs is the default (Lecture 3 §7).
+**B** — SemVer + setuptools_scm/hatch-vcs is the default (Lecture 3 §7).
 
 </details>
+
+---
 
 ## Self-reflection
 

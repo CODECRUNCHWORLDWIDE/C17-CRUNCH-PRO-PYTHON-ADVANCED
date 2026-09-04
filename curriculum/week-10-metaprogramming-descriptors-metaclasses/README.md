@@ -37,6 +37,15 @@ By the end of this week, you will be able to:
 - **Cooperate** with type checkers. Articulate which of the four mechanisms each of mypy and pyright understands natively, which need `typing.dataclass_transform` (PEP 681, 2022; <https://peps.python.org/pep-0681/>), and which require a mypy plugin.
 - **Decide**. Given a real problem (a validated-config loader, an ORM column system, an event-emitter base class, an enum-like construct), pick the right rung of the ladder and defend the choice in two sentences.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `CS 61B` — Design classes with encapsulation and inheritance: control what an attribute access does, and customise what happens when a class is subclassed. |
+| Industry | Pick the least powerful mechanism that solves the problem, and defend that choice to whoever maintains the code after you leave. |
+| Beyond the bar | The same library is written four ways, benchmarked, and reduced to a one-page decision tree written for a junior teammate — `mini-project/decision-tree.md` |
+
+
 ## Prerequisites
 
 - **C17 Weeks 1–9** completed. Week 4's coverage of decorators and `functools.wraps` is directly load-bearing this week.

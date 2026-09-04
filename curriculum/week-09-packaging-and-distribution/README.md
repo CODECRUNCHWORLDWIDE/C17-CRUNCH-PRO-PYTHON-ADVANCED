@@ -38,6 +38,15 @@ By the end of this week, you will be able to:
 - **Read** a `pyproject.toml` from a major OSS project (`numpy`, `pip`, `httpx`) and identify every section, every directive, and every PEP it derives from.
 - **Diagnose** the canonical packaging failures: (1) editable install fails because backend does not support PEP 660; (2) wheel is "platform-specific" (`linux_x86_64`) but should be `none-any` because it is pure Python; (3) manylinux wheel was built outside the docker image and gets rejected by `auditwheel`; (4) `pip install` fails because a transitive dep had a new major version that broke compatibility (the lockfile would have caught it).
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `COP 3337` — Assemble a multi-file program with a build configuration and produce an artefact another person can install and run. |
+| Industry | Cut a release nobody has to babysit: a tag push builds the wheels, publishes them with no credential stored anywhere, and the install is verified from a clean environment. |
+| Beyond the bar | The release path is trusted publishing over GitHub Actions OIDC plus a `cibuildwheel` matrix across platforms and interpreter versions — `challenges/challenge-02-cibuildwheel-matrix.md` |
+
+
 ## Prerequisites
 
 - **C17 Weeks 1–8** completed. In particular: Week 8 (you have a `.so` and you want to ship it — this is the week you do); Week 7 (the profiling discipline carries over: measure your CI build time, do not just "ship faster builds" without numbers).

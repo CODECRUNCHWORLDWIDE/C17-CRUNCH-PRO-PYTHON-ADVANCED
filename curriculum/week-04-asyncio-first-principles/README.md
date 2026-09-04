@@ -21,6 +21,15 @@ By the end of this week, you will be able to:
 - **Benchmark** an async fan-out (1000 concurrent HTTP requests against a local server) against the same fan-out using a thread pool, and explain the order-of-magnitude difference in memory and tail-latency.
 - **Read** the real `asyncio` event loop (`Lib/asyncio/base_events.py` and `Lib/asyncio/selector_events.py`) and locate, by `file:line`, the equivalent of every primitive in your toy clone.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `CS 106B` — State the interface an abstraction must satisfy, then write and use implementations against that interface rather than against a concrete class. |
+| Industry | Build the concurrency primitive your team depends on, so that when it stalls in production you can debug it rather than file an issue and wait. |
+| Beyond the bar | The week rebuilds a working subset of the standard library’s event loop in under 500 lines, then asks the learner to find each primitive’s counterpart by `file:line` in CPython’s own `Lib/asyncio/` — `mini-project/README.md` |
+
+
 ## Prerequisites
 
 - **C17 Weeks 1–3** completed. You should be able to read `dis.dis(f)` output, sketch a `PyObject` refcount, and explain the GIL.

@@ -33,6 +33,15 @@ By the end of this week, you will be able to:
 - **Decide** between `ctypes`/`cffi`/`Cython` and the *fourth* option — "do not write C; vectorise with NumPy" — by measuring both. The right answer is often the fourth.
 - **Cite** the C-API URLs, PEP 7, cffi docs, Cython docs, and the relevant CPython source files (`Modules/_ctypes/_ctypes.c`, `Objects/abstract.c` for buffer protocol).
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `EECS 280` — Compile and link a multi-file program, and reason about what crosses the boundary between separately built units. |
+| Industry | Decide whether a hot loop is worth a native extension at all, and be able to state the maintenance cost before anybody writes a line of C. |
+| Beyond the bar | One kernel is written three ways — `ctypes`, `cffi` and Cython — and benchmarked against the fourth option of not writing C at all — `challenges/challenge-01-mandelbrot-three-ways.md` |
+
+
 ## Prerequisites
 
 - **C17 Weeks 1–7** completed. In particular: Week 1 (CPython object model and the C-API surface — `PyObject *`, reference counting, the GIL), Week 3 (the GIL specifically — you cannot reason about a C extension's threading behaviour without it), Week 7 (the profiling discipline — you measure before and after, every time).

@@ -32,6 +32,15 @@ By the end of this week, you will be able to:
 - **Diagnose** the four canonical mistakes: using `multiprocessing` for a 1-ms task (overhead dwarfs the work), using `threading` for pure-Python CPU work on default CPython (the GIL serialises you), using `asyncio` for a blocking library call (the loop stalls for every task), using a process pool inside Jupyter on Windows without an `if __name__ == "__main__":` guard (recursive process spawning).
 - **Cite** the relevant PEPs and source files from memory: PEP 3148 (`concurrent.futures`), PEP 703 (free-threaded), PEP 711 (PyBI; relevant because of 3.13t binary distribution), `Lib/concurrent/futures/thread.py`, `Lib/concurrent/futures/process.py`, `Lib/multiprocessing/`, the joblib `Parallel` API, the loky README.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `CS 61B` — Program against a common interface so that implementations are interchangeable, and choose between them on their costs. |
+| Industry | Answer “should this be threads, processes or async?” in a code review with two numbers — wall-clock and per-task CPU — instead of an opinion. |
+| Beyond the bar | Three workloads run through five primitives on two CPython builds, one of them the free-threaded `3.13t`, ending in a memo the learner has to defend — `mini-project/README.md` |
+
+
 ## Prerequisites
 
 - **C17 Weeks 1–5** completed. In particular: Week 3 (GIL, free-threaded build, PEP 703 at the C level) and Week 4 (`asyncio` from first principles). You should be able to explain what the GIL protects, what an `await` does to the GIL, and what a `Task` is.

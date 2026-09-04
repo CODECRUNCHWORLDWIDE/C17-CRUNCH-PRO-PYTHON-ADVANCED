@@ -25,6 +25,15 @@ By the end of this week, you will be able to:
 - **Run** Python in non-default modes: `python -O`, `python -i`, `python -c`, `python -m`, `python -X dev`, and explain what each does.
 - **Find and apply** at least one performance fix at the bytecode level — for instance, the difference between `LOAD_FAST` and `LOAD_GLOBAL`.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | Past the outcome set: a second programming course stops at “the compiler produces an executable”. This week opens the interpreter instead — source to tokens to AST to bytecode — and then builds it from source. |
+| Industry | Find, by file and line, the code responsible for one behaviour in a codebase of millions of lines you have never opened, before you change anything in it. |
+| Beyond the bar | It asks the learner to compile the interpreter they have been running for years, then locate the C function behind `sum` — `challenges/challenge-01-build-cpython-from-source.md` |
+
+
 ---
 
 ## Prerequisites

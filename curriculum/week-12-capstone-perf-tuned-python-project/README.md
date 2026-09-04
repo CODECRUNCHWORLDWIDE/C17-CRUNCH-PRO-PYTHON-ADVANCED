@@ -31,6 +31,15 @@ By the end of this week, you will be able to:
 - **Report**. The benchmark report is a markdown document. It is part of the deliverable. Treat it as a paper, not as an afterthought.
 - **Ship**. The package goes live on TestPyPI. The benchmark report goes in `mini-project/REPORT.md`. The TestPyPI URL goes in `mini-project/SUBMISSION.md`.
 
+## Standards this week meets
+
+| Bar | What this week is measured against |
+| --- | --- |
+| University | `COP 3337` — Deliver a substantial multi-file program of your own design: build it, test it, document it, and defend the result. |
+| Industry | Hand your work to somebody else, watch them fail to reproduce it, and close every gap in the methodology before it ships. |
+| Beyond the bar | The benchmark report is a graded deliverable in its own right — hardware, seed, warm-up runs, median and interval all stated — and a peer audits it — `challenges/challenge-02-reproducibility-audit.md` |
+
+
 ## The W1–W12 wrap-up (sidebar)
 
 The track in one paragraph per week, written as a take-home reference:

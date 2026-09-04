@@ -11,6 +11,13 @@ Ten questions. Lectures closed.
 - C) Always `<built-in method builtins.exec>` because that's where Python starts.
 - D) The function with the most call sites in the source code.
 
+<details>
+<summary>Answer</summary>
+
+**B** — Sort by `tottime` to find the leaf; `cumtime` finds the orchestrator. Lecture 1 §11, Lecture 2 §§5, 7.
+
+</details>
+
 ---
 
 **Q2.** A sampling profiler at 100 Hz, run for 10 seconds, takes approximately how many samples?
@@ -19,6 +26,13 @@ Ten questions. Lectures closed.
 - B) 1,000.
 - C) 100,000 — one per millisecond of work-time.
 - D) Depends on how many function calls the program made; sampling profilers count calls.
+
+<details>
+<summary>Answer</summary>
+
+**B** — 100 Hz × 10 s = 1,000 samples. Lecture 1 §3, Lecture 3 §5.
+
+</details>
 
 ---
 
@@ -29,6 +43,13 @@ Ten questions. Lectures closed.
 - C) `process_time` is faster and should be used everywhere.
 - D) `perf_counter` requires `sudo` on Linux; `process_time` does not.
 
+<details>
+<summary>Answer</summary>
+
+**B** — wall vs. CPU clock. Lecture 1 §2.
+
+</details>
+
 ---
 
 **Q4.** A function `slow_fn` shows `tottime=0.05`, `cumtime=2.5` in a cProfile output for a 3-second run. The right interpretation is:
@@ -37,6 +58,13 @@ Ten questions. Lectures closed.
 - B) `slow_fn` is an orchestrator: it spent 0.05 seconds in its own body but 2.5 seconds in functions it called. Look at what it calls (`print_callees`) — that is where the time went.
 - C) The profile is corrupt; `cumtime` cannot exceed `tottime`.
 - D) `slow_fn` has a sleep call that accounts for 2.45 seconds.
+
+<details>
+<summary>Answer</summary>
+
+**B** — high `cumtime`, low `tottime` is an orchestrator; the time went to callees. Lecture 1 §11, Lecture 2 §3.
+
+</details>
 
 ---
 
@@ -47,6 +75,13 @@ Ten questions. Lectures closed.
 - C) A built-in available in all Python 3.11+ scripts.
 - D) Synonymous with `cProfile.Profile()` and produces the same output.
 
+<details>
+<summary>Answer</summary>
+
+**B** — `kernprof` injects the decorator at runtime; the shim makes scripts run with or without it. Lecture 2 §8.1.
+
+</details>
+
 ---
 
 **Q6.** `py-spy record -o flame.svg --pid 12345 --duration 30` will, on a default Ubuntu 24.04 box, often fail with permission denied because:
@@ -55,6 +90,13 @@ Ten questions. Lectures closed.
 - B) Linux's `ptrace_scope=1` (the default) restricts cross-process memory reading to descendants of the calling process or `sudo`. Fix: run with `sudo`, or temporarily set `sysctl kernel.yama.ptrace_scope=0` on a development box.
 - C) The flamegraph SVG renderer requires a graphical display.
 - D) py-spy requires Python to be compiled with `--enable-profiling`.
+
+<details>
+<summary>Answer</summary>
+
+**B** — `ptrace_scope=1` is the default; `sudo` or sysctl. Lecture 3 §3.
+
+</details>
 
 ---
 
@@ -65,6 +107,13 @@ Ten questions. Lectures closed.
 - C) Call depth.
 - D) Memory consumption per frame.
 
+<details>
+<summary>Answer</summary>
+
+**B** — sample count, alphabetic. Lecture 3 §§4, 12.
+
+</details>
+
 ---
 
 **Q8.** `scalene` distinguishes "Python time" from "Native time" per line. The single most actionable use of that distinction is:
@@ -73,6 +122,13 @@ Ten questions. Lectures closed.
 - B) It tells you whether to rewrite the Python (Python time high → algorithm/data-structure change in Python) or to swap the library (Native time high → the wrapper is essentially free; replace the C library, batch larger, use a different one). The fix is different for each.
 - C) It is required for `pip install` to work.
 - D) It is the difference between bytecode and AST execution and applies only to interpreted code.
+
+<details>
+<summary>Answer</summary>
+
+**B** — fix shape depends on column shape. Lecture 3 §§9, 13.
+
+</details>
 
 ---
 
@@ -83,6 +139,13 @@ Ten questions. Lectures closed.
 - C) Use `multiprocessing.Pool` for parallelism.
 - D) Increase `--rate` in py-spy.
 
+<details>
+<summary>Answer</summary>
+
+**B** — memory-bound; generator/in-place. Challenge 2.
+
+</details>
+
 ---
 
 **Q10.** The heisenberg problem in profiling refers to:
@@ -92,25 +155,14 @@ Ten questions. Lectures closed.
 - C) A bug in `cProfile` that was fixed in 3.11.
 - D) The garbage collector running during a profile.
 
----
-
-## Answer key
-
 <details>
-<summary>Reveal</summary>
+<summary>Answer</summary>
 
-1. **B** — Sort by `tottime` to find the leaf; `cumtime` finds the orchestrator. Lecture 1 §11, Lecture 2 §§5, 7.
-2. **B** — 100 Hz × 10 s = 1,000 samples. Lecture 1 §3, Lecture 3 §5.
-3. **B** — wall vs. CPU clock. Lecture 1 §2.
-4. **B** — high `cumtime`, low `tottime` is an orchestrator; the time went to callees. Lecture 1 §11, Lecture 2 §3.
-5. **B** — `kernprof` injects the decorator at runtime; the shim makes scripts run with or without it. Lecture 2 §8.1.
-6. **B** — `ptrace_scope=1` is the default; `sudo` or sysctl. Lecture 3 §3.
-7. **B** — sample count, alphabetic. Lecture 3 §§4, 12.
-8. **B** — fix shape depends on column shape. Lecture 3 §§9, 13.
-9. **B** — memory-bound; generator/in-place. Challenge 2.
-10. **B** — observation perturbs; ratios within a run, not absolutes across. Lecture 1 §4.
+**B** — observation perturbs; ratios within a run, not absolutes across. Lecture 1 §4.
 
 </details>
+
+---
 
 ## Self-reflection
 
